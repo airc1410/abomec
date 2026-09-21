@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABOMEC — Asociación Boliviana de Mejora Continua</title>
+<meta name="description" content="ABOMEC es la Asociación Boliviana de Mejora Continua: una comunidad que conecta profesionales, empresas, universidades y expertos para impulsar la productividad y la excelencia operacional en Bolivia.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23131F3D'/%3E%3Cpath d='M20 78 L50 42 L62 54 L80 22' stroke='%23F3A423' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M60 20 L80 22 L78 42' stroke='%23F3A423' stroke-width='9' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rojo:#E4402B;
+    --amarillo:#F3A423;
+    --verde:#1C8A4B;
+    --navy:#131F3D;
+    --navy-soft:#1C2C54;
+    --crema:#FAF9F5;
+    --gris:#5B6472;
+    --linea:#E7E4DB;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--navy);
+    background:var(--crema);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Sora',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-0.01em;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  :focus-visible{outline:3px solid var(--amarillo);outline-offset:2px;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--crema);
+    border-bottom:1px solid var(--linea);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 28px;max-width:1120px;margin:0 auto;
+  }
+  .logo{display:flex;align-items:center;gap:12px;}
+  .logo-mark{
+    display:grid;grid-template-columns:auto auto;gap:1px;
+    font-family:'Sora',sans-serif;font-weight:800;font-size:13px;line-height:1;
+  }
+  .logo-mark span{display:block;padding:2px 5px;color:#fff;}
+  .logo-a{background:var(--rojo);grid-column:1/2;}
+  .logo-bo{background:var(--amarillo);grid-column:1/2;}
+  .logo-mec{background:var(--verde);grid-column:1/2;}
+  .logo-text{font-size:13.5px;color:var(--navy);font-weight:600;line-height:1.25;}
+  .logo-text strong{display:block;font-family:'Sora',sans-serif;font-size:15px;font-weight:800;letter-spacing:0.01em;}
+
+  nav.links{display:flex;gap:28px;align-items:center;}
+  nav.links a{font-size:14.5px;font-weight:500;color:var(--navy-soft);transition:color .15s;}
+  nav.links a:hover{color:var(--rojo);}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--rojo);color:#fff;
+    padding:10px 20px;border-radius:6px;
+    font-weight:600;font-size:14.5px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 0 0 rgba(228,64,43,0);
+  }
+  .btn:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(228,64,43,.28);}
+  .menu-toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
+    display:block;width:22px;height:2px;background:var(--navy);position:relative;transition:.2s;
+  }
+  .menu-toggle span::before,.menu-toggle span::after{content:"";position:absolute;left:0;}
+  .menu-toggle span::before{top:-7px;}
+  .menu-toggle span::after{top:7px;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;background:var(--navy);color:#fff;overflow:hidden;
+    padding:96px 0 88px;
+  }
+  .hero::before{
+    content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(243,164,35,.20), transparent 60%);
+  }
+  .hero-arrow{
+    position:absolute;right:6%;bottom:-10%;width:260px;opacity:.15;
+    transform:rotate(-8deg);
+  }
+  .hero-inner{position:relative;z-index:2;max-width:680px;}
+  .eyebrow-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
+    padding:7px 14px;border-radius:100px;font-size:13.5px;font-weight:500;color:#EDEBE4;
+    margin-bottom:26px;
+  }
+  .eyebrow-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--amarillo);}
+  .hero h1{font-size:clamp(2.1rem,4.6vw,3.4rem);color:#fff;margin-bottom:18px;}
+  .hero h1 .accent{color:var(--amarillo);}
+  .hero p.lead{font-size:1.13rem;color:#C9CEDD;max-width:560px;margin-bottom:34px;}
+  .hero-meta{
+    display:flex;flex-wrap:wrap;gap:28px;margin-bottom:38px;
+  }
+  .hero-meta div{display:flex;flex-direction:column;gap:3px;}
+  .hero-meta .label{font-size:12.5px;color:#8E96AE;font-weight:500;}
+  .hero-meta .value{font-size:16px;font-weight:600;color:#fff;}
+  .hero-ctas{display:flex;gap:16px;flex-wrap:wrap;}
+  .btn-outline{
+    border:1px solid rgba(255,255,255,.35);color:#fff;padding:10px 20px;border-radius:6px;
+    font-weight:600;font-size:14.5px;transition:.15s;
+  }
+  .btn-outline:hover{background:rgba(255,255,255,.08);}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head .kicker{
+    font-size:14px;font-weight:600;color:var(--rojo);margin-bottom:10px;
+  }
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--navy);}
+  .section-head p{color:var(--gris);margin-top:14px;font-size:1.02rem;}
+
+  /* ---------- QUE ES ABOMEC (idea + proposito) ---------- */
+  .split-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+  .split-card{
+    background:#fff;border-radius:10px;padding:32px;
+    border-top:4px solid var(--rojo);
+  }
+  .split-card.yellow{border-top-color:var(--amarillo);}
+  .split-card h3{font-size:1.15rem;margin-bottom:14px;color:var(--navy);}
+  .split-card p{color:var(--gris);font-size:.98rem;}
+
+  .why-block{
+    margin-top:28px;background:var(--verde);color:#fff;border-radius:10px;
+    padding:34px 36px;
+  }
+  .why-block h3{color:#fff;font-size:1.15rem;margin-bottom:16px;}
+  .why-block ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px;}
+  .why-block li{position:relative;padding-left:20px;font-size:.96rem;color:#E9F6EE;}
+  .why-block li::before{content:"";position:absolute;left:0;top:8px;width:7px;height:7px;background:var(--amarillo);border-radius:50%;}
+
+  /* ---------- BUILD GRID (que queremos construir) ---------- */
+  .build-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .build-card{
+    background:#fff;border-radius:10px;padding:26px 20px;text-align:left;
+    border:1px solid var(--linea);
+  }
+  .build-icon{
+    width:42px;height:42px;border-radius:8px;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+    color:var(--amarillo);font-family:'Sora',sans-serif;font-weight:800;
+  }
+  .build-card h4{font-size:1rem;margin-bottom:8px;}
+  .build-card p{font-size:.87rem;color:var(--gris);}
+
+  /* ---------- AUDIENCE ROW ---------- */
+  .audience-row{
+    display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;
+    background:#fff;border-radius:10px;padding:36px 30px;border:1px solid var(--linea);
+  }
+  .audience-item{display:flex;flex-direction:column;align-items:center;gap:10px;flex:1;min-width:130px;text-align:center;}
+  .audience-item .circle{
+    width:52px;height:52px;border-radius:50%;background:var(--crema);
+    border:1.5px solid var(--navy);display:flex;align-items:center;justify-content:center;
+    font-family:'Sora',sans-serif;font-weight:700;color:var(--navy);font-size:1.1rem;
+  }
+  .audience-item span.label{font-size:.87rem;font-weight:600;color:var(--navy-soft);}
+
+  /* ---------- VISION BAND ---------- */
+  .vision{
+    position:relative;overflow:hidden;
+    background:var(--navy);color:#fff;border-radius:14px;
+    padding:52px 48px;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;align-items:center;
+  }
+  .vision-arrow{position:absolute;left:-40px;bottom:-40px;width:200px;opacity:.08;pointer-events:none;}
+  .vision .tag{color:var(--amarillo);font-weight:600;font-size:14px;margin-bottom:10px;}
+  .vision h3{font-size:1.5rem;color:#fff;}
+  .vision p{color:#CBD1E0;font-size:1.02rem;}
+  .vision p strong{color:var(--amarillo);font-weight:600;}
+  .values-row{display:flex;gap:22px;flex-wrap:wrap;margin-top:8px;}
+  .values-row div{
+    font-size:.83rem;font-weight:600;color:#EDEBE4;
+    border:1px solid rgba(255,255,255,.25);padding:8px 14px;border-radius:100px;
+  }
+
+  /* ---------- EVENT DETAILS ---------- */
+  .event-panel{
+    background:#fff;border:1px solid var(--linea);border-radius:12px;overflow:hidden;
+    display:grid;grid-template-columns:1fr 1fr;
+  }
+  .event-panel .left{padding:44px;border-right:1px solid var(--linea);}
+  .event-panel .right{padding:44px;background:var(--crema);}
+  .event-panel h3{font-size:1.3rem;margin-bottom:18px;}
+  .event-row{display:flex;gap:14px;margin-bottom:18px;}
+  .event-row .k{width:30px;color:var(--rojo);font-weight:700;font-family:'Sora',sans-serif;}
+  .event-row .v strong{display:block;font-size:.95rem;color:var(--navy);}
+  .event-row .v span{font-size:.87rem;color:var(--gris);}
+  .agenda-list{list-style:none;}
+  .agenda-list li{
+    display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--linea);font-size:.92rem;
+  }
+  .agenda-list li:last-child{border-bottom:none;}
+  .agenda-list .time{color:var(--rojo);font-weight:600;min-width:78px;}
+
+  /* ---------- REGISTRATION CTA ---------- */
+  .cta-band{
+    background:linear-gradient(135deg,var(--rojo),#c73320);
+    border-radius:14px;padding:56px 48px;color:#fff;
+    display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+  }
+  .cta-band h3{color:#fff;font-size:1.6rem;max-width:420px;}
+  .cta-band p{color:#FBD9D3;margin-top:10px;max-width:420px;font-size:.96rem;}
+  .btn-white{
+    background:#fff;color:var(--rojo);padding:14px 28px;border-radius:6px;font-weight:700;font-size:15px;
+    white-space:nowrap;transition:.15s;
+  }
+  .btn-white:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(0,0,0,.18);}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy);color:#AEB5C6;padding:52px 0 28px;}
+  .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1);}
+  .footer-col h5{color:#fff;font-size:.9rem;margin-bottom:14px;}
+  .footer-col a{display:block;font-size:.88rem;color:#AEB5C6;margin-bottom:8px;transition:.15s;}
+  .footer-col a:hover{color:var(--amarillo);}
+  .footer-bottom{display:flex;justify-content:space-between;padding-top:22px;font-size:.82rem;flex-wrap:wrap;gap:10px;}
+
+  .placeholder{color:var(--rojo);font-weight:600;}
+  .placeholder-white{color:var(--amarillo);border-bottom:2px dashed rgba(243,164,35,.55);padding-bottom:2px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+    .split-cards{grid-template-columns:1fr;}
+    .why-block ul{grid-template-columns:1fr;}
+    .build-grid{grid-template-columns:repeat(2,1fr);}
+    .vision{grid-template-columns:1fr;padding:38px 28px;}
+    .event-panel{grid-template-columns:1fr;}
+    .event-panel .left{border-right:none;border-bottom:1px solid var(--linea);}
+    .cta-band{flex-direction:column;text-align:left;}
+  }
+  @media (max-width:560px){
+    .build-grid{grid-template-columns:1fr;}
+    .audience-row{justify-content:flex-start;}
+    section{padding:60px 0;}
+    .hero{padding:70px 0 64px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-mark">
+        <span class="logo-a">A</span>
+        <span class="logo-bo">BO</span>
+        <span class="logo-mec">MEC</span>
+      </div>
+      <div class="logo-text">
+        <strong>ABOMEC</strong>
+        Asociación Boliviana de Mejora Continua
+      </div>
+    </a>
+    <nav class="links">
+      <a href="#que-es">Qué es ABOMEC</a>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#quienes">A quién conectamos</a>
+      <a href="#evento">El evento</a>
+      <a href="#registro" class="btn">Registrarme</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Abrir menú"><span></span></button>
+  </div>
+</header>
+
+<section class="hero">
+  <svg class="hero-arrow" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 90 L55 45 L70 60 L90 10" stroke="#F3A423" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M68 8 L90 10 L88 32" stroke="#F3A423" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="eyebrow-tag"><span class="dot"></span> ABOMEC presenta</div>
+    <h1><span class="placeholder-white">Prier evento</span><br>el primer espacio de mejora continua de Bolivia</h1>
+    <p class="lead">Un congreso para conectar profesionales, empresas, universidades y expertos en torno a la productividad y la excelencia operacional en Bolivia.</p>
+    <div class="hero-meta">
+      <div>
+        <span class="label">Fecha</span>
+        <span class="value">01/01/2026</span>
+      </div>
+      <div>
+        <span class="label">Modalidad</span>
+        <span class="value">presencial-virtual</span>
+      </div>
+      <div>
+        <span class="label">Lugar</span>
+        <span class="value">Santa Cruz de la sierra</span>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#registro" class="btn">Quiero registrarme</a>
+      <a href="#que-es" class="btn-outline">Conocer ABOMEC</a>
+    </div>
+  </div>
+</section>
+
+<section id="que-es">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Qué es ABOMEC</div>
+      <h2>Una comunidad para impulsar la mejora continua en Bolivia</h2>
+      <p>ABOMEC nace como una plataforma de conexión para impulsar la productividad y la excelencia operacional en el país, uniendo a quienes ya trabajan en mejora continua con quienes recién empiezan.</p>
+    </div>
+
+    <div class="split-cards">
+      <div class="split-card">
+        <h3>Nuestra idea</h3>
+        <p>ABOMEC nace como una comunidad y plataforma de conexión para impulsar la mejora continua, la productividad y la excelencia operacional en Bolivia.</p>
+      </div>
+      <div class="split-card yellow">
+        <h3>Nuestro propósito</h3>
+        <p>Conectar personas, empresas, universidades y expertos para compartir conocimiento, desarrollar capacidades y generar impacto real en las organizaciones bolivianas.</p>
+      </div>
+    </div>
+
+    <div class="why-block">
+      <h3>¿Por qué ABOMEC?</h3>
+      <ul>
+        <li>Porque Bolivia necesita más espacios de intercambio profesional y aprendizaje práctico.</li>
+        <li>Porque la mejora continua puede elevar la competitividad de empresas e instituciones.</li>
+        <li>Porque unir academia, industria y profesionales genera más valor.</li>
+        <li>Porque queremos construir una comunidad con visión de largo plazo.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="objetivos" style="background:#fff;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Qué queremos construir</div>
+      <h2>Cinco pilares detrás de cada actividad de ABOMEC</h2>
+    </div>
+    <div class="build-grid">
+      <div class="build-card">
+        <div class="build-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-1a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v1"/><circle cx="10" cy="8" r="3.2"/><path d="M17.5 20v-1a3.8 3.8 0 0 0-2.5-3.58"/><path d="M14.5 4.14a3.2 3.2 0 0 1 0 6.2"/></svg></div>
+        <h4>Comunidad</h4>
+        <p>Una red de personas interesadas en mejora continua.</p>
+      </div>
+      <div class="build-card">
+        <div class="build-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5V5.5Z"/><path d="M4 5.5A2.5 2.5 0 0 0 6.5 8H20"/></svg></div>
+        <h4>Aprendizaje</h4>
+        <p>Charlas, formación y espacios de desarrollo.</p>
+      </div>
+      <div class="build-card">
+        <div class="build-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17V10c3-3.5 15-3.5 18 0v7"/><path d="M5 17v3M9 17v3M15 17v3M19 17v3"/><path d="M3 17h18"/></svg></div>
+        <h4>Vinculación</h4>
+        <p>Puentes entre universidades, empresas y expertos.</p>
+      </div>
+      <div class="build-card">
+        <div class="build-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.5.4.9 1.1 1 1.8h5a2.6 2.6 0 0 1 1-1.8A6 6 0 0 0 12 3Z"/></svg></div>
+        <h4>Inspiración</h4>
+        <p>Casos, ideas y experiencias que motiven a mejorar.</p>
+      </div>
+      <div class="build-card">
+        <div class="build-icon"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19h18"/><path d="M6 19v-5.5M11 19V8M16 19v-9M21 19V5"/></svg></div>
+        <h4>Impacto</h4>
+        <p>Una iniciativa que contribuya a la competitividad de Bolivia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quienes">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">A quién queremos conectar</div>
+      <h2>Un punto de encuentro para todo el ecosistema</h2>
+    </div>
+    <div class="audience-row">
+      <div class="audience-item">
+        <div class="circle"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/></svg></div>
+        <span class="label">Profesionales</span>
+      </div>
+      <div class="audience-item">
+        <div class="circle"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V8l6-4v17M4 21h16M14 21V11l6-3v13M8 9h.01M8 13h.01M8 17h.01"/></svg></div>
+        <span class="label">Empresas</span>
+      </div>
+      <div class="audience-item">
+        <div class="circle"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-5.5"/></svg></div>
+        <span class="label">Universidades</span>
+      </div>
+      <div class="audience-item">
+        <div class="circle"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="7.5" width="12" height="13" rx="2"/><path d="M9 7.5V6a3 3 0 0 1 6 0v1.5M9 12h6M9 16h4"/></svg></div>
+        <span class="label">Estudiantes</span>
+      </div>
+      <div class="audience-item">
+        <div class="circle"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-6-3.8-9s1.3-6.4 3.8-9Z"/></svg></div>
+        <span class="label">Expertos nacionales e internacionales</span>
+      </div>
+    </div>
+
+    <div class="vision" style="margin-top:36px;">
+      <svg class="vision-arrow" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 90 L55 45 L70 60 L90 10" stroke="#F3A423" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M68 8 L90 10 L88 32" stroke="#F3A423" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="tag">Nuestra visión</div>
+        <h3>Un referente de mejora continua en Bolivia</h3>
+        <div class="values-row">
+          <div>Seriedad</div>
+          <div>Colaboración</div>
+          <div>Aprendizaje</div>
+          <div>Crecimiento</div>
+        </div>
+      </div>
+      <p>ABOMEC no es solo un evento. Es una idea para construir <strong>comunidad</strong>, compartir <strong>conocimiento</strong> y generar una cultura de <strong>mejora continua</strong> en Bolivia. Convertir a ABOMEC en un punto de encuentro referente para la mejora continua en el país.</p>
+    </div>
+  </div>
+</section>
+
+<section id="evento" style="background:#fff;border-top:1px solid var(--linea);">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">El evento</div>
+      <h2>evento</h2>
+      <p>aca va la info del evento</p>
+    </div>
+    <div class="event-panel">
+      <div class="left">
+        <h3>Detalles</h3>
+        <div class="event-row">
+          <div class="k">01</div>
+          <div class="v"><strong>fecha</strong><span>Fecha y horario del congreso</span></div>
+        </div>
+        <div class="event-row">
+          <div class="k">02</div>
+          <div class="v"><strong>modalidad</strong><span>Presencial, virtual o híbrido</span></div>
+        </div>
+        <div class="event-row">
+          <div class="k">03</div>
+          <div class="v"><strong>lugar/plataforma</strong><span>Ciudad, recinto o link de transmisión</span></div>
+        </div>
+  
+      </div>
+      <div class="right">
+        <h3>Agenda preliminar</h3>
+        <ul class="agenda-list">
+          <li><span class="time">hora</span> actividad</li>
+          <li><span class="time">hora</span> actividad</li>
+          <li><span class="time">hora</span> actividad</li>
+          <li><span class="time">hora</span> actividad</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="registro">
+  <div class="wrap">
+    <div class="cta-band">
+      <div>
+        <h3>Asegura tu lugar en el evento</h3>
+        <p>descripcion para el registro</p>
+      </div>
+      <a href="[LINK_DE_GOOGLE_FORMS]" class="btn-white" target="_blank" rel="noopener">Registrarme ahora</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-col" style="max-width:280px;">
+        <h5>ABOMEC</h5>
+        <p style="font-size:.86rem;color:#AEB5C6;">Asociación Boliviana de Mejora Continua. Un espacio para construir comunidad, compartir conocimiento e impulsar la excelencia operacional en Bolivia.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <a href="#que-es">Qué es ABOMEC</a>
+        <a href="#objetivos">Objetivos</a>
+        <a href="#quienes">A quién conectamos</a>
+        <a href="#evento">El evento</a>
+      </div>
+      <div class="footer-col">
+        <h5>Síguenos</h5>
+        <a href="https://www.linkedin.com/company/abomec-%E2%80%93-asociaci%C3%B3n-boliviana-de-mejora-continua/">LinkedIn</a>
+        
+      </div>
+      <div class="footer-col">
+        <h5>Contacto</h5>
+        <a href="mailto:[EMAIL_DE_CONTACTO]">emailcontacto</a>
+        <a href="tel:[TELEFONO]">telefono</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ABOMEC, Asociación Boliviana de Mejora Continua. Todos los derechos reservados.</span>
+      <span>Hecho con orgullo en Bolivia</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
